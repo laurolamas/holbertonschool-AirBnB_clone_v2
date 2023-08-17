@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 Task 0
 """
@@ -9,4 +10,6 @@ app = Flask(__name__)
 
 @app.route("/", strict_slashes=False)
 def hello_world():
-    return "<p>Hello HBNB!</p>"
+    """ Hello world """
+    return "Hello HBNB!"
+    
