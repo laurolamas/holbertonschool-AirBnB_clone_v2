@@ -4,7 +4,8 @@
 Task 0
 """
 
-from flask import Flask
+from flask import Flask, render_template
+from flask import abort
 
 app = Flask(__name__)
 
@@ -32,6 +33,18 @@ def hello_c(text):
 def hello_python(text='is_cool'):
     """ Hello Python """
     return "Python {}".format(text.replace("_", " "))
+
+
+@app.route("/number/<int:number>", strict_slashes=False)
+def hello_number(number):
+    """ Hello number """
+    return "{} is a number".format(number)
+
+
+@app.route("/number_template/<int:number>", strict_slashes=False)
+def number_template(number):
+    """ Hello template """
+    return render_template("5-number.html", number=number)
 
 
 if __name__ == '__main__':
