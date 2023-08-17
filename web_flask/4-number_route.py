@@ -37,9 +37,13 @@ def hello_python(text='is_cool'):
 
 @app.route("/number/<number>", strict_slashes=False)
 def hello_number(number):
-    if int(number):
-        return "{} is a number".format(number)
-    else:
+    try:
+        num = int(number)
+        if num != 0:
+            return "{} is a number".format(num)
+        else:
+            abort(404)
+    except ValueError:
         abort(404)
 
 
